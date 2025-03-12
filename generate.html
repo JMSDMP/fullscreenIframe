@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Path</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="src-url">
+        <button type="submit">Generate</button>
+        <input type="text" id="url" disabled>
+    </form>
+    <script>
+        document.querySelector("form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            console.log(event)
+            event.target[2].value = window.location.href + "/../?src=" + encodeURIComponent(event.target[0].value);
+        })
+    </script>
+</body>
+</html>
