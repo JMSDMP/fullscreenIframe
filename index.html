@@ -12,7 +12,12 @@
     <body>
         <iframe src="" frameborder="0"></iframe>
         <script defer>
-            document.querySelector("iframe").src = new URLSearchParams(window.location.search).get("src");
+            const url = new URLSearchParams(window.location.search).get("src");
+            if (url !== null) {
+                document.querySelector("iframe").src = url;
+            } else {
+                document.body.innerHTML = `<center><h1>No src specified</h1><hr><a href="${window.location.href}/../generate.html">Generate Url</a></center>`
+            }
         </script>
     </body>
 </html>
